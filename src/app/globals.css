@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-forest: #3d513f; /* background green baked into the logo art */
+  --color-acid: #dcd641; /* wordmark yellow */
+  --color-celery: #e6e8b0; /* type color from the 2026 flyer */
+  --color-grey-green: #585b58; /* background from the 2026 flyer */
+  --font-sans: var(--font-poppins);
+}
+
+/* Lock the page to its own left and right edges. Without this, a single
+   overflowing element anywhere lets mobile browsers drag the whole layout
+   sideways. `clip` is preferred over `hidden` because `hidden` would force
+   overflow-y to auto, turning these into scroll containers. `hidden` stays
+   first as a fallback for browsers without `clip`. */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-forest);
+  color: var(--color-celery);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}

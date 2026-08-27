@@ -41,26 +41,42 @@ registrar, before mail actually flows.
 ## Brand assets
 
 `public/images/` holds the source art: `townies-open-logo.png` (arched
-wordmark plus the golf-ball mascot) and `golf-ball-mascot.png`. The share card
-and favicons are generated from those:
+`assets/` holds the original brand art — `townies-open-logo.png` (arched
+wordmark plus the golf-ball mascot) and `golf-ball-mascot.png`. Nothing in
+`assets/` is served. Everything in `public/images/` is generated from it:
 
 ```bash
 node scripts/generate-assets.mjs
 ```
 
-That writes `og.png`, `icon-512.png` and `apple-icon.png` into the same
-directory. Outputs are committed, so only re-run it if the source art changes.
+That writes the two page images plus `og.png`, `icon-512.png` and
+`apple-icon.png`. Outputs are committed, so only re-run it when the source art
+or the palette changes.
 
-Colors live as Tailwind theme tokens in `src/app/globals.css`:
+## Colors
 
-| Token        | Hex       | Used for                         |
-| ------------ | --------- | -------------------------------- |
-| `forest`     | `#3d513f` | page background (matches the art) |
-| `acid`       | `#dcd641` | wordmark yellow, dates, buttons  |
-| `celery`     | `#e6e8b0` | body text                        |
-| `grey-green` | `#585b58` | the interest-form band           |
+The whole site is two colors, taken from the 2026 registration flyer, defined
+as Tailwind theme tokens in `src/app/globals.css`:
 
-Type is Poppins throughout.
+| Token        | Hex       | Used for                                    |
+| ------------ | --------- | ------------------------------------------- |
+| `grey-green` | `#585b58` | page background; text on celery fills       |
+| `celery`     | `#e6e8b0` | all type, buttons, form fields, art         |
+
+Type is Poppins throughout, with hierarchy from size and weight rather than
+color.
+
+**The source art is not in this palette.** It ships in the logo's original
+forest green (`#3d513f`) and acid yellow (`#dcd641`), and
+`scripts/generate-assets.mjs` recolors it on the way into `public/images/`. It
+does this by interpolation rather than substitution, so antialiased edges come
+across cleanly instead of keeping a green fringe.
+
+The practical consequence: **the artwork has the page background baked into
+it.** Changing `grey-green` in `globals.css` without changing `TO_BG` in the
+script leaves every image sitting on the page as a visible rectangle. Change
+both, re-run the script, and commit the results together. For the same reason,
+never place the logo or mascot on a filled panel.
 
 ## Deploying
 

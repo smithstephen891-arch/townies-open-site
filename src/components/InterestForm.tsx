@@ -9,8 +9,11 @@ function msSince(start: number | null): number {
   return start === null ? 0 : Date.now() - start;
 }
 
+// Celery fill rather than white: white would be a third color on a page that
+// is deliberately only two. The focus ring is celery too, so it needs the
+// page-colored offset to separate it from the field it surrounds.
 const inputClass =
-  "w-full rounded-lg border border-celery/40 bg-white px-4 py-3 text-forest placeholder:text-forest/40 focus:outline-none focus:ring-2 focus:ring-acid";
+  "w-full rounded-lg border border-celery/40 bg-celery px-4 py-3 text-grey-green placeholder:text-grey-green/50 focus:outline-none focus:ring-2 focus:ring-celery focus:ring-offset-2 focus:ring-offset-grey-green";
 
 const labelClass = "mb-1.5 block text-sm font-semibold text-celery";
 
@@ -61,20 +64,22 @@ export default function InterestForm() {
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className="rounded-2xl bg-celery p-8 text-center focus:outline-none"
+        className="rounded-2xl border-2 border-celery/40 p-8 text-center focus:outline-none"
       >
+        {/* No panel fill: the mascot art carries the page background, so a
+            filled panel would frame it in a visible rectangle. */}
         <Image
           src="/images/golf-ball-mascot.png"
           alt=""
           width={1080}
           height={1350}
           sizes="80px"
-          className="mx-auto h-auto w-20 rounded-xl"
+          className="mx-auto h-auto w-20"
         />
-        <p className="mt-4 text-2xl font-extrabold text-forest">
+        <p className="mt-4 text-2xl font-extrabold text-celery">
           You&rsquo;re on the list!
         </p>
-        <p className="mt-3 leading-relaxed text-forest/80">
+        <p className="mt-3 leading-relaxed text-celery/80">
           Thanks &mdash; we&rsquo;ll email you when registration and details go
           live. Keep an eye on{" "}
           <a
@@ -180,7 +185,7 @@ export default function InterestForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-full bg-acid py-4 text-base font-extrabold uppercase tracking-wide text-forest transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-celery/60 disabled:cursor-not-allowed disabled:opacity-60"
+        className="min-h-11 w-full rounded-full bg-celery py-4 text-base font-extrabold uppercase tracking-wide text-grey-green transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-celery focus-visible:ring-offset-4 focus-visible:ring-offset-grey-green disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Keep Me Posted"}
       </button>

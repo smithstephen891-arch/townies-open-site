@@ -248,7 +248,7 @@ export async function POST(request: Request) {
 
     const e = escapeHtml;
     const row = (label: string, value: string) =>
-      `<tr><td style="padding: 8px 0; color: #666; width: 140px; vertical-align: top;"><strong>${label}</strong></td><td style="padding: 8px 0; color: #3d513f;">${value}</td></tr>`;
+      `<tr><td style="padding: 8px 0; color: #666; width: 140px; vertical-align: top;"><strong>${label}</strong></td><td style="padding: 8px 0; color: #585b58;">${value}</td></tr>`;
 
     // Resend reports failures in the response body rather than throwing, so a
     // bare await would let a rejected send look like success to the sender.
@@ -275,14 +275,14 @@ IP: ${ip}
 Sent via the interest form at towniesgolf.com`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #3d513f;">New Townies Open Interest Submission</h2>
+          <h2 style="color: #585b58;">New Townies Open Interest Submission</h2>
           <table style="width: 100%; border-collapse: collapse;">
             ${row("Name", e(name))}
             ${row("Email", `<a href="mailto:${e(email)}">${e(email)}</a>`)}
             ${row("Interested in", e(interestLabel))}
           </table>
           <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 16px 0;" />
-          <h3 style="color: #3d513f;">Message</h3>
+          <h3 style="color: #585b58;">Message</h3>
           <p style="color: #555; line-height: 1.6; white-space: pre-wrap;">${message ? e(message) : "(none)"}</p>
           <hr style="border: none; border-top: 1px solid #e5e5e5; margin: 16px 0;" />
           <table style="width: 100%; border-collapse: collapse;">

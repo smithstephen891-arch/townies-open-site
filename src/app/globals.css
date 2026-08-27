@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
+/* The whole site is two colors, taken from the 2026 registration flyer: pale
+   celery drawn on grey green. The logo art ships in the older forest-green and
+   acid-yellow palette and is recolored to match by
+   scripts/generate-assets.mjs — change a color here and change it there too,
+   or the artwork will stop matching its own background. */
 @theme inline {
-  --color-forest: #3d513f; /* background green baked into the logo art */
-  --color-acid: #dcd641; /* wordmark yellow */
-  --color-celery: #e6e8b0; /* type color from the 2026 flyer */
-  --color-grey-green: #585b58; /* background from the 2026 flyer */
+  --color-grey-green: #585b58;
+  --color-celery: #e6e8b0;
   --font-sans: var(--font-poppins);
 }
 
@@ -20,7 +23,7 @@ body {
 }
 
 body {
-  background: var(--color-forest);
+  background: var(--color-grey-green);
   color: var(--color-celery);
   font-family: var(--font-poppins), system-ui, sans-serif;
 }

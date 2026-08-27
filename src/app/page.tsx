@@ -4,7 +4,7 @@ import InterestForm from "@/components/InterestForm";
 export default function Home() {
   return (
     <>
-      {/* The logo PNG carries the same forest green as the page background,
+      {/* The logo PNG is generated with the page's own background baked in,
           so it needs no masking to sit seamlessly in the hero. */}
       <section className="flex min-h-svh flex-col items-center justify-center px-6 py-16 text-center">
         <Image
@@ -19,7 +19,7 @@ export default function Home() {
         <p className="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-celery/90 sm:text-base">
           The Official Golf Tournament of Unofficial Golf
         </p>
-        <p className="mt-8 text-4xl font-extrabold tracking-tight text-acid sm:text-6xl">
+        <p className="mt-8 text-4xl font-extrabold tracking-tight text-celery sm:text-6xl">
           April 17&ndash;18, 2027
         </p>
         <p className="mt-4 max-w-md text-base text-celery/80 sm:text-lg">
@@ -27,13 +27,13 @@ export default function Home() {
         </p>
         <a
           href="#interest"
-          className="mt-10 inline-block min-h-11 rounded-full bg-acid px-9 py-4 text-base font-extrabold uppercase tracking-wide text-forest transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-celery/60"
+          className="mt-10 inline-block min-h-11 rounded-full bg-celery px-9 py-4 text-base font-extrabold uppercase tracking-wide text-grey-green transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-celery focus-visible:ring-offset-4 focus-visible:ring-offset-grey-green"
         >
           Keep Me Posted
         </a>
       </section>
 
-      <section id="interest" className="scroll-mt-8 bg-grey-green">
+      <section id="interest" className="scroll-mt-8 border-t border-celery/15">
         <div className="mx-auto max-w-xl px-6 py-20">
           <h1 className="text-3xl font-extrabold text-celery sm:text-4xl">
             Want in?
@@ -64,7 +64,7 @@ export default function Home() {
             href="https://www.instagram.com/towniesgolf"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-celery underline underline-offset-4 hover:text-acid"
+            className="font-semibold text-celery underline underline-offset-4 hover:text-celery/70"
           >
             @towniesgolf
           </a>

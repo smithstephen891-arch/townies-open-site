@@ -68,6 +68,7 @@ export default function InterestForm() {
           alt=""
           width={1080}
           height={1350}
+          sizes="80px"
           className="mx-auto h-auto w-20 rounded-xl"
         />
         <p className="mt-4 text-2xl font-extrabold text-forest">

@@ -55,6 +55,7 @@ export default function Home() {
           alt=""
           width={1080}
           height={1350}
+          sizes="80px"
           className="mx-auto h-auto w-20"
         />
         <p className="mt-4 text-sm text-celery/70">
